@@ -7,10 +7,11 @@
 [![Downloads](https://img.shields.io/github/downloads/9bishi/autostdu/total)](https://github.com/9bishi/autostdu/releases)
 
 ### 项目简介
-**AutoSTDU** 是一个用于自动登录校园网的 Python 工具，设计为每天首次开机时自动运行。通过 Edge 浏览器模拟自动化操作，AutoSTDU 在用户端打开浏览器并自动填写用户名和密码，实现无缝校园网登录。
-
+**AutoSTDU** 是一个用于自动登录石家庄铁道大学校园网的 Python 工具，设计为每天首次开机时自动运行。通过 Edge 浏览器模拟自动化操作，AutoSTDU 在用户端打开浏览器并自动填写用户名和密码，实现无缝校园网登录。
+理论上简单类型的校园网均可使用该python脚本，提供EXE文件便于每天可以执行欢迎来进行Star
 ---
-
+### 声明
+该项目使用了AI技术。但不得不说，用Chatgpt写小型项目是真方便。
 ## 功能
 - 自动化校园网登录
 - 支持每天首次开机时自动运行
@@ -18,10 +19,9 @@
 
 ## 环境要求
 - Python 3.10 或以上版本
-- Edge 浏览器及对应版本的 EdgeDriver
-
+- Edge 浏览器/Chrome
 ## 安装指南
-
+### 直接下载release打包好的zip
 ### 1. 克隆项目
 ```bash
 git clone https://github.com/9bishi/autostdu.git

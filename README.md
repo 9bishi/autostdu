@@ -54,7 +54,7 @@ python campus_login.py
 ### 5. 打包为 EXE 文件
 如需打包为 `.exe` 文件，使用以下命令：
 ```bash
-pyinstaller --onefile --windowed campus_login.py
+pyinstaller --onefile --windowed --icon=icon.ico campus_login.py
 ```
 
 ---

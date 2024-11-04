@@ -88,9 +88,4 @@ pyinstaller --onefile --windowed campus_login.py
 ## 支持
 如遇问题或有改进建议，欢迎提交 [issue](https://github.com/9bishi/autostdu/issues)。
 
-```
 
-### 注意事项
-1. 将 `your_username` 和 `your_password` 替换为具体的用户名和密码示例说明。
-2. 如项目中已有 `config.ini` 文件，确保格式符合上面的示例。
-3. 如需修改徽章链接，请确认徽章显示的数据准确，尤其是下载次数和贡献者数量等动态信息。

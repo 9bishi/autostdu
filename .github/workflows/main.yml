@@ -1,0 +1,60 @@
+name: Build and Release EXE
+
+on:
+  push:
+    branches:
+      - main  # 触发条件，可以根据需要修改
+  workflow_dispatch:  # 允许手动触发工作流
+
+jobs:
+  build:
+    runs-on: windows-latest  # 在 Windows 上运行构建
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'  # 指定 Python 版本
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller  # 安装 PyInstaller
+          pip install selenium  # 安装 Selenium（如果需要）
+
+      - name: Build EXE
+        run: |
+          pyinstaller --onefile --windowed --icon=icon.ico campus_login.py
+
+      - name: Copy config.ini
+        run: |
+          cp config.ini dist/  # 将 config.ini 文件复制到 dist 目录
+
+      - name: Create ZIP package
+        run: |
+          cd dist
+          powershell -Command "Compress-Archive -Path * -DestinationPath campus_login_package.zip"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          release_name: Release v1.0.${{ github.run_number }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_KEY }} 
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/campus_login_package.zip
+          asset_name: campus_login_package.zip
+          asset_content_type: application/zip
+        env:
+            GITHUB_TOKEN: ${{ secrets.GIT_KEY }} 

@@ -23,7 +23,8 @@
 - Python 3.10 或以上版本
 - Edge 浏览器/Chrome
 ## 安装指南
-### 直接下载release打包好的zip
+### 一.直接下载release打包好的zip
+### 二.自行编译
 ### 1. 克隆项目
 ```bash
 git clone https://github.com/9bishi/autostdu.git

@@ -17,8 +17,8 @@ password = config['login']['password']
 
 # 创建WebDriver实例（无需指定driver_path）
 # driver = webdriver.Chrome()  # 确保chromedriver在系统路径中
-# 创建WebDriver实例，使用Edge浏览器
-driver = webdriver.Edge()  # 确保msedgedriver在系统路径中
+# 创建WebDriver实例，使用Chrome浏览器
+driver = webdriver.Chrome()  # 确保msedgedriver在系统路径中
 # 打开校园网登录页面
 driver.get(login_url)
 
